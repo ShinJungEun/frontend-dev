@@ -1,0 +1,5 @@
+@CHARSET "UTF-8";
+@import "main.css";
+h1 {
+	color: #f00;
+}
