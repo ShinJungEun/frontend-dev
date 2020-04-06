@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+var o = {
+	name: '둘리',
+	age: 10,
+	isFemale: false
+};
+
+var f = function() {
+	console.log("Hello World");
+};
+
+var i = 10;
+var n = new Number(10);
+
+f();
+window.f();
+
+console.log(o);
+console.log(window.o);
+
+console.log("===============객체 확장(object, function)===================");
+
+o.another = {
+	name: '마이콜',
+	age: 30
+};
+
+console.log(o);
+
+f.another = {
+	name: '또치',
+	age: 15,
+	info: function() {
+		console.log(this.name + ":" + this.age);
+	}
+};
+
+console.log(f.another);
+f.another.info();
+
+console.log("====================기본타입은 확장X=========================")
+i.another = {};
+console.log(i.another);
+
+</script>
+</head>
+<body>
+	<h1>전역객체 window</h1>
+</body>
+</html>
