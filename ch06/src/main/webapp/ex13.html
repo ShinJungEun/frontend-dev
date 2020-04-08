@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var o = {
+	name: '마이콜', 
+	age: 20,
+	hasProperty: function(property) {
+		return property in this;
+	}
+}
+
+console.log(o.hasProperty("name"));
+console.log(o.hasProperty("age"));
+console.log(o.hasProperty("email"));
+// console.log("age" in o);
+
+console.log("==================hasOwnProperty======================");
+console.log(o.hasOwnProperty("name"));
+console.log(o.hasOwnProperty("age"));
+console.log(o.hasOwnProperty("email"));
+
+console.log("==================with()======================");
+with(o) {
+	console.log(name + ":" + age);
+}
+
+console.log("==================for ~ in======================");
+var data = "";
+for(var property in o) {
+	if(typeof(o[property]) != 'function') {
+		data += (o[property] + ":");
+	}
+}
+console.log(data);
+</script>
+</head>
+<body>
+	<h1>in 연산자</h1>
+</body>
+</html>
