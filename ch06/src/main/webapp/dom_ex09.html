@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+window.addEventListener("load", function() {
+	var img = document.createElement('img');	
+	
+	setTimeout(function() {
+		// (표준 + 비표준) 속성 접근 하기 위해서는 setAttribute 메소드를 사용한다.
+		
+		document.body.appendChild(img);
+		
+		img.setAttribute('src', 'http://www.nwtnews.co.kr/news/photo/201407/1489_865_5049.jpg');
+		img.setAttribute('width', 400);
+		img.setAttribute('alt', '둘리와 둘리 친구들');
+		img.setAttribute('title', '둘리와 둘리 친구들');
+		img.setAttribute('data-name', '둘리와 둘리 친구들');
+	}, 2000);
+});
+</script>
+</head>
+<body>
+	<h1>HTMLElement 속성 조작하기</h1>
+</body>
+</html>

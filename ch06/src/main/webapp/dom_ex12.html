@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+// DOM Level2 Standard Event Model
+// IE8 대응(Cross-Browser) 이벤트 등록
+var registerEventHandler = function(element, eventName, handler) {
+	element &&					// element가 null이 아니면, 
+	element.attachEvent	&&		// <= IE8
+	element.attachEvent('on' + eventName, handler);
+	
+	element &&					// element가 null이 아니면, 
+	element.attachEventListener	&&		// others
+	element.attachEvent(eventName, handler);
+	
+}
+
+window.addEventListener('load', function() {
+	var header = document.getElementById("header");
+	
+	var clickEventListener = function() {
+		console.log('click1');
+	}
+	
+	// header.addEventListener('click');
+	
+	header.addEventListener('click', function() {
+		console.log('click2');
+	});
+	
+	// <= IE8 대응
+	registerEventHandler(header, 'click', function() {
+		console.log('click3');
+	});
+	
+	// Listener 제거
+	header.removeEventListener('click', clickEventListener);
+	
+});
+
+</script>
+</head>
+<body>
+	<h1 id='header'>Click!</h1>
+</body>
+</html>
