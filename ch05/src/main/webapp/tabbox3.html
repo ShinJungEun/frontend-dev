@@ -4,9 +4,20 @@
 <meta charset="utf-8">
 <title>리스트를 이용한 메뉴 만들기</title>
 <style type="text/css">
-*						{ margin:0; padding:0 }
-ul, ol { list-style-type: none }
-body					{ font-family: '맑은 고딕' 돋움; font-size:0.75em; color:#333 }
+* {
+	margin: 0;
+	padding: 0
+}
+
+ul, ol {
+	list-style-type: none
+}
+
+body {
+	font-family: '맑은 고딕' 돋움;
+	font-size: 0.75em;
+	color: #333
+}
 
 .tab-box {
 	width: 520px;
@@ -40,49 +51,22 @@ body					{ font-family: '맑은 고딕' 돋움; font-size:0.75em; color:#333 }
 	text-align: center;
 	line-height: 200px;
 }
-
 </style>
-<script type="text/javascript">
-// DOM Level 2 Event 처리 - 특정 Element의 Event의 Listener를 등록하는 방식
-// 특정 event 핸들러(Listener)를 여러 개 등록할 수 있다.
-var onTabClicked = function() {
-	// unselect
-	var liSelecteds = document.getElementsByClassName('selected');
-	(liSelecteds.length == 1) && (liSelecteds[0].className = '');
-	
-	// select
-	this.className = 'selected';
-}
-
-window.addEventListener('load', function() {
-	// div: class='tab-box'
-	var divTabBox = document.getElementsByClassName('tab-box')[0];
-	var ulTabBox = divTabBox.childNodes[1];
-	var liTabs = ulTabBox.getElementsByTagName('li');
-	
-	for(var i = 0; i < liTabs.length; i++) {
-		liTabs[i].addEventListener('click', onTabClicked);	
-	}
-});
-
-window.addEventListener('load', function() {
-	console.log("dom loaded!!!");
-});
-
+<script src="tabbox.js" type="text/javascript"></script>
+<script>
+TabBox.init();
 </script>
 </head>
 <body>
-<div class="tab-box">
-	<ul>
-        <li>메뉴 5</li>
-        <li>메뉴 4</li>
-        <li>메뉴 3</li>
-        <li>메뉴 2</li>
-        <li>메뉴 1</li>
-    </ul>
-    <div>
-    	탭뷰입니다.
-    </div>
-</div>    
+	<div class="tab-box">
+		<ul>
+			<li>메뉴 5</li>
+			<li>메뉴 4</li>
+			<li>메뉴 3</li>
+			<li>메뉴 2</li>
+			<li>메뉴 1</li>
+		</ul>
+		<div>탭뷰입니다.</div>
+	</div>
 </body>
 </html>
